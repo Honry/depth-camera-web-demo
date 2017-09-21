@@ -261,7 +261,8 @@
 
         void main(){
           vec4 tex = texture2D(s, t);
-          gl_FragColor = vec4(tex.r, tex.r, tex.r, tex.a);
+          //gl_FragColor = vec4(tex.r, tex.r, tex.r, tex.a);
+          gl_FragColor = (tex.r < 0.99) ? (vec4(tex.r, tex.r, tex.r, tex.a) * 5.0) : vec4(tex.r, 0.0, 0.0, tex.a);
         }`);
       gl.compileShader(pixel_shader);
 
